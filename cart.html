@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Bag - Slay With Icce</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="images/icelogo.png" alt="IC Logo" class="logo">
+                <span class="brand-name">Slay With Icce</span>
+            </div>
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Order Summary Page -->
+    <section class="order-summary-page">
+        <div class="container">
+            <!-- Back to Shopping -->
+            <div class="back-to-shopping">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Continue Shopping
+                </a>
+            </div>
+
+            <!-- Page Title -->
+            <div class="page-header">
+                <h1 class="page-title">Your Bag</h1>
+                <p class="page-subtitle">Review your order and proceed to checkout</p>
+            </div>
+
+            <!-- Order Summary Content -->
+            <div class="order-content">
+                <!-- Cart Items Section -->
+                <div class="cart-items-section">
+                    <h2 class="section-title">Order Items</h2>
+                    <div class="order-items" id="orderItems">
+                        <!-- Cart items will be dynamically loaded here -->
+                    </div>
+                    
+                    <!-- Empty State -->
+                    <div class="empty-cart" id="emptyCart" style="display: none;">
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h3>Your bag is empty</h3>
+                        <p>Add some beautiful items to get started!</p>
+                        <a href="index.html" class="btn btn-primary">
+                            <i class="fas fa-shopping-bag"></i>
+                            Start Shopping
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Order Details Section -->
+                <div class="order-details-section">
+                    <!-- Package Information -->
+                    <div class="package-info">
+                        <h3 class="package-title">
+                            <i class="fas fa-box"></i>
+                            Package Information
+                        </h3>
+                        <div class="package-details">
+                            <div class="package-item">
+                                <span class="package-label">Items Count:</span>
+                                <span class="package-value" id="itemsCount">0</span>
+                            </div>
+                            <div class="package-item">
+                                <span class="package-label">Package Type:</span>
+                                <span class="package-value">Premium Packaging</span>
+                            </div>
+                            <div class="package-item">
+                                <span class="package-label">Delivery:</span>
+                                <span class="package-value">Free within Kumasi</span>
+                            </div>
+                            <div class="package-item">
+                                <span class="package-label">Estimated Delivery:</span>
+                                <span class="package-value">2-3 business days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Price Summary -->
+                    <div class="price-summary">
+                        <h3 class="price-title">
+                            <i class="fas fa-receipt"></i>
+                            Order Summary
+                        </h3>
+                        <div class="price-details">
+                            <div class="price-item">
+                                <span class="price-label">Subtotal:</span>
+                                <span class="price-value">GHS <span id="subtotal">0.00</span></span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Delivery Fee:</span>
+                                <span class="price-value" id="deliveryFee">FREE</span>
+                            </div>
+                            <div class="price-item discount" id="discountItem" style="display: none;">
+                                <span class="price-label">Discount:</span>
+                                <span class="price-value">-GHS <span id="discountAmount">0.00</span></span>
+                            </div>
+                            <div class="price-divider"></div>
+                            <div class="price-item total">
+                                <span class="price-label">Total Amount:</span>
+                                <span class="price-value">GHS <span id="totalAmount">0.00</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Contact -->
+                    <div class="payment-contact">
+                        <h3 class="payment-title">
+                            <i class="fab fa-whatsapp"></i>
+                            Ready to Pay?
+                        </h3>
+                        <p class="payment-subtitle">Contact us on WhatsApp to complete your order</p>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>0247559387</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>+233247559387</span>
+                            </div>
+                        </div>
+                        <button class="whatsapp-payment-btn" id="whatsappPaymentBtn">
+                            <i class="fab fa-whatsapp"></i>
+                            Contact on WhatsApp for Payment
+                        </button>
+                        <p class="payment-note">
+                            <small>We'll confirm your order details and provide payment instructions</small>
+                        </p>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="order-actions">
+                        <button class="btn btn-outline" id="clearCartBtn">
+                            <i class="fas fa-trash"></i>
+                            Clear Bag
+                        </button>
+                        <a href="index.html" class="btn btn-secondary">
+                            <i class="fas fa-plus"></i>
+                            Add More Items
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Chat Bot -->
+    <div class="whatsapp-chatbot" id="whatsappChatbot">
+        <!-- Chat Button -->
+        <div class="chat-button" id="chatButton">
+            <i class="fab fa-whatsapp"></i>
+            <span class="chat-tooltip">Chat with us</span>
+        </div>
+
+        <!-- Chat Window -->
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <img src="images/icelogo.png" alt="Slay With Icce" class="chat-avatar">
+                    <div class="chat-header-text">
+                        <h4>Slay With Icce</h4>
+                        <p>Usually responds instantly</p>
+                    </div>
+                </div>
+                <button class="chat-close-btn" id="chatCloseBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome Message -->
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>👋 Welcome to Slay With Icce! I'm here to help you with anything you need.</p>
+                        <p>How can I assist you today?</p>
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+
+                <!-- Quick Options -->
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>Choose an option below:</p>
+                        <div class="quick-options">
+                            <button class="quick-option" onclick="sendQuickReply('🛍️ Browse Products')">
+                                🛍️ Browse Products
+                            </button>
+                            <button class="quick-option" onclick="sendQuickReply('📦 Order Status')">
+                                📦 Order Status
+                            </button>
+                            <button class="quick-option" onclick="sendQuickReply('💁 Customer Support')">
+                                💁 Customer Support
+                            </button>
+                            <button class="quick-option" onclick="sendQuickReply('📍 Store Location')">
+                                📍 Store Location
+                            </button>
+                        </div>
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <input type="text" id="chatInput" placeholder="Type a message..." maxlength="200">
+                    <button class="chat-send-btn" id="chatSendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <button class="whatsapp-connect-btn" id="whatsappConnectBtn">
+                    <i class="fab fa-whatsapp"></i>
+                    Connect on WhatsApp
+                </button>
+                <div class="chat-powered">
+                    Powered by Slay With Icce
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="cart-script.js"></script>
+</body>
+</html>

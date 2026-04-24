@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slay With Icce - C'est Chic</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="images/icelogo.png" alt="IC Logo" class="logo">
+                <span class="brand-name">Slay With Icce</span>
+            </div>
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-brand">
+                <img src="images/icelogo.png" alt="IC Logo" class="hero-logo">
+                <h1 class="hero-title">Slay With Icce</h1>
+                <p class="hero-tagline">C'est Chic</p>
+            </div>
+            <div class="hero-video">
+                <video autoplay muted loop playsinline>
+                    <source src="images/home.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">Featured Collection</h2>
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-overlay" id="cartOverlay"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Your Bag</h3>
+                <button class="close-btn" id="closeCart">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be dynamically loaded here -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total: GHS <span id="cartTotal">0</span></span>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">Place Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Complete Your Order</h3>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Delivery Location</label>
+                    <input type="text" id="location" name="location" placeholder="Kumasi, Ghana" required>
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp Number *</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="0247559387 or +233247559387" required>
+                </div>
+                <div class="order-summary">
+                    <h4>Order Summary</h4>
+                    <div id="orderSummaryItems"></div>
+                    <div class="summary-total">
+                        <strong>Total: GHS <span id="summaryTotal">0</span></strong>
+                    </div>
+                </div>
+                <button type="submit" class="submit-order-btn">Send Order to WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>At Slay With Icce, we believe that elegance is not just about what you wear—it's about how you feel. Our "C'est Chic" philosophy embodies the perfect blend of sophistication and contemporary style, bringing you curated pieces that make every moment extraordinary.</p>
+                    <p>Located in the heart of Kumasi, Ghana, we're dedicated to bringing luxury fashion to your doorstep with a seamless shopping experience that celebrates individuality and grace.</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kumasi, Ghana</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0247559387</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://instagram.com/slaywithicce" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            @slaywithicce
+                        </a>
+                        <a href="https://snapchat.com/add/iccequeen23" target="_blank" class="social-link">
+                            <i class="fab fa-snapchat"></i>
+                            iccequeen23
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Chat Bot -->
+    <div class="whatsapp-chatbot" id="whatsappChatbot">
+        <!-- Chat Button -->
+        <div class="chat-button" id="chatButton">
+            <i class="fab fa-whatsapp"></i>
+            <span class="chat-tooltip">Chat with us</span>
+        </div>
+
+        <!-- Chat Window -->
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <img src="images/icelogo.png" alt="Slay With Icce" class="chat-avatar">
+                    <div class="chat-header-text">
+                        <h4>Slay With Icce</h4>
+                        <p>Usually responds instantly</p>
+                    </div>
+                </div>
+                <button class="chat-close-btn" id="chatCloseBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome Message -->
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>👋 Welcome to Slay With Icce! I'm here to help you with anything you need.</p>
+                        <p>How can I assist you today?</p>
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+
+                <!-- Quick Options -->
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>Choose an option below:</p>
+                        <div class="quick-options">
+                            <button class="quick-option" onclick="sendQuickReply('🛍️ Browse Products')">
+                                🛍️ Browse Products
+                            </button>
+                            <button class="quick-option" onclick="sendQuickReply('📦 Order Status')">
+                                📦 Order Status
+                            </button>
+                            <button class="quick-option" onclick="sendQuickReply('💁 Customer Support')">
+                                💁 Customer Support
+                            </button>
+                            <button class="quick-option" onclick="sendQuickReply('📍 Store Location')">
+                                📍 Store Location
+                            </button>
+                        </div>
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <input type="text" id="chatInput" placeholder="Type a message..." maxlength="200">
+                    <button class="chat-send-btn" id="chatSendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <button class="whatsapp-connect-btn" id="whatsappConnectBtn">
+                    <i class="fab fa-whatsapp"></i>
+                    Connect on WhatsApp
+                </button>
+                <div class="chat-powered">
+                    Powered by Slay With Icce
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
