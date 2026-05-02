@@ -207,7 +207,7 @@ class CartPage {
 
         const message = `💰 PAYMENT REQUEST - Slay With Icce\n\n📦 Order Details:\n${orderItems}\n\n💸 Payment Summary:\n• Subtotal: GHS ${subtotal.toFixed(2)}\n• Delivery: ${deliveryFee === 0 ? 'FREE' : `GHS ${deliveryFee.toFixed(2)}`}\n${discount > 0 ? `• Discount: -GHS ${discount.toFixed(2)}\n` : ''}• Total: GHS ${total.toFixed(2)}\n\n📞 Please contact me to arrange payment and delivery.\n\nThank you!`;
 
-        const whatsappUrl = `https://wa.me/233247559387?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/233598028565?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
 
         this.showNotification('Opening WhatsApp for payment...');

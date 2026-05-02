@@ -422,7 +422,7 @@ function validateForm(formData) {
     } else {
         const cleanWhatsapp = formData.whatsapp.replace(/\s/g, '');
         if (!/^(\+?233\d{9}|0\d{9})$/.test(cleanWhatsapp)) {
-            errors.push('Please enter a valid Ghanaian WhatsApp number (e.g., 0247559387 or +233247559387)');
+            errors.push('Please enter a valid Ghanaian WhatsApp number (e.g., 0598028565 or +233598028565)');
         }
     }
 
@@ -453,12 +453,12 @@ function handleCheckout(e) {
     const message = `🛍️ NEW ORDER - Slay With Icce\n\n📦 Items: ${orderItems}\n💰 Total: GHS ${totalPrice}\n� Customer: ${formData.fullName}\n� Delivery: ${formData.location}\n� WhatsApp: ${formData.whatsapp}\n\nPlease process this order. Customer expects delivery details soon.\n\nTimestamp: ${new Date().toLocaleString()}`;
     
     // Send to business WhatsApp number
-    const businessWhatsappNumber = '233247559387';
+    const businessWhatsappNumber = '233598028565';
     const whatsappUrl = `https://wa.me/${businessWhatsappNumber}?text=${encodeURIComponent(message)}`;
     
     // Also send receipt to customer
     setTimeout(() => {
-        const customerMessage = `🛍️ ORDER CONFIRMATION - Slay With Icce\n\nThank you for your order!\n\n📦 Items: ${orderItems}\n💰 Total: GHS ${totalPrice}\n📍 Delivery: ${formData.location}\n\nWe'll contact you soon with delivery details.\n\n📞 Contact us: 0247559387\n📸 Instagram: @slaywithicce`;
+        const customerMessage = `🛍️ ORDER CONFIRMATION - Slay With Icce\n\nThank you for your order!\n\n📦 Items: ${orderItems}\n💰 Total: GHS ${totalPrice}\n📍 Delivery: ${formData.location}\n\nWe'll contact you soon with delivery details.\n\n📞 Contact us: 0598028565\n📸 Instagram: @slaywithicce`;
         
         // Clean customer WhatsApp number
         let customerWhatsappNumber = formData.whatsapp.replace(/\s/g, '');
@@ -672,15 +672,15 @@ class WhatsAppChatBot {
         }
         // Order status responses
         else if (lowerMessage.includes('order') || lowerMessage.includes('status') || lowerMessage.includes('delivery')) {
-            response = `📦 Order Status:\n\nTo check your order status, please provide:\n• Your full name\n• Order date\n• WhatsApp number used\n\nOr you can call us directly at 0247559387 for immediate assistance!`;
+            response = `📦 Order Status:\n\nTo check your order status, please provide:\n• Your full name\n• Order date\n• WhatsApp number used\n\nOr you can call us directly at 0598028565 for immediate assistance!`;
         }
         // Customer support responses
         else if (lowerMessage.includes('support') || lowerMessage.includes('help') || lowerMessage.includes('contact')) {
-            response = `💁 Customer Support:\n\n📞 Call: 0247559387\n📸 Instagram: @slaywithicce\n👻 Snapchat: iccequeen23\n📍 Location: Kumasi, Ghana\n\nWe're available 24/7 to help you with any questions!`;
+            response = `💁 Customer Support:\n\n📞 Call: 0598028565\n📸 Instagram: @slaywithicce\n👻 Snapchat: iccequeen23\n📍 Location: Kumasi, Ghana\n\nWe're available 24/7 to help you with any questions!`;
         }
         // Location responses
         else if (lowerMessage.includes('location') || lowerMessage.includes('address') || lowerMessage.includes('where')) {
-            response = `📍 Store Location:\n\nWe're located in Kumasi, Ghana!\n\n🏢 Visit our showroom for:\n• In-person shopping\n• Try-on sessions\n• Style consultations\n• Express pickup\n\nWorking hours: 9AM - 8PM Daily\n\nWant directions? Call us at 0247559387!`;
+            response = `📍 Store Location:\n\nWe're located in Kumasi, Ghana!\n\n🏢 Visit our showroom for:\n• In-person shopping\n• Try-on sessions\n• Style consultations\n• Express pickup\n\nWorking hours: 9AM - 8PM Daily\n\nWant directions? Call us at 0598028565!`;
         }
         // Price-related responses
         else if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('how much')) {
