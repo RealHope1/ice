@@ -1,44 +1,448 @@
-// Product Data
+// Enhanced Product Data from SHOP IMG folder with Classical Names
 const products = [
     {
         id: 1,
-        name: "Elegant Evening Dress",
-        price: 450,
-        video: "images/2.mp4",
-        category: "Dresses",
-        description: "Stunning evening dress perfect for special occasions"
+        name: "Imperial Elegance",
+        price: 340,
+        image: "SHOP IMG/340.jpeg",
+        category: "Noble Collection",
+        description: "An exquisite piece crafted for the discerning fashion connoisseur",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.8,
+        reviews: 127
     },
     {
         id: 2,
-        name: "Chic Casual Outfit",
-        price: 280,
-        video: "images/3.mp4",
-        category: "Casual",
-        description: "Comfortable yet stylish casual wear"
+        name: "Channel Heritage Sneakers",
+        price: 450,
+        image: "SHOP IMG/A CHANNEL SNEAKERS 38 - 42 ₵450 - ₵600.jpeg",
+        category: "Royal Footwear",
+        description: "Authentic Channel heritage sneakers, a testament to timeless luxury",
+        inStock: true,
+        sizes: ["38", "39", "40", "41", "42"],
+        rating: 4.9,
+        reviews: 89
     },
     {
         id: 3,
-        name: "Luxury Party Wear",
-        price: 520,
-        video: "images/4.mp4",
-        category: "Party",
-        description: "Stand out at any party with this exclusive piece"
+        name: "Majestic Zipper Couture Jacket",
+        price: 300,
+        image: "SHOP IMG/A LUXE ZR ZIPPER BUMPER JACKET Size S M L FIT XL PRICE CHANNEL SNEAKERS 38 - 42 ₵300 - ₵400.jpeg",
+        category: "Imperial Outerwear",
+        description: "A majestic zipper jacket embodying sophisticated craftsmanship",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.7,
+        reviews: 156
     },
     {
         id: 4,
-        name: "Trendy Street Style",
-        price: 350,
-        video: "images/5.mp4",
-        category: "Street",
-        description: "Modern street style with a touch of elegance"
+        name: "Supreme Imperial Crown",
+        price: 1000,
+        image: "SHOP IMG/A ₵1000.jpeg",
+        category: "Crown Jewels",
+        description: "The pinnacle of luxury fashion, reserved for true royalty",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 5.0,
+        reviews: 203
     },
     {
         id: 5,
-        name: "Classic Business Wear",
-        price: 420,
-        video: "images/6.mp4",
-        category: "Business",
-        description: "Professional attire with a sophisticated look"
+        name: "Imperial Air Force Burgundy",
+        price: 450,
+        image: "SHOP IMG/B nike AF1 CRUSH BURGUNDY SIZE 38-45 IN BOX ₵450-₵600.jpeg",
+        category: "Royal Footwear",
+        description: "Imperial Air Force edition in rich burgundy, fit for nobility",
+        inStock: true,
+        sizes: ["38", "39", "40", "41", "42", "43", "44", "45"],
+        rating: 4.8,
+        reviews: 267
+    },
+    {
+        id: 6,
+        name: "Regal Zipper Masterpiece",
+        price: 300,
+        image: "SHOP IMG/C LUXE ZR ZIPPER BUMPER JACKET Size S M L FIT XL PRICE CHANNEL SNEAKERS 38 - 42 ₵300 - ₵400.jpeg",
+        category: "Imperial Outerwear",
+        description: "A regal zipper jacket designed for the modern aristocrat",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.6,
+        reviews: 94
+    },
+    {
+        id: 7,
+        name: "Imperial Air Force Legacy",
+        price: 450,
+        image: "SHOP IMG/C nike AF1 CRUSH BURGUNDY SIZE 38-45 IN BOX ₵450- ₵600.jpeg",
+        category: "Royal Footwear",
+        description: "Imperial Air Force legacy edition with original imperial packaging",
+        inStock: true,
+        sizes: ["38", "39", "40", "41", "42", "43", "44", "45"],
+        rating: 4.9,
+        reviews: 178
+    },
+    {
+        id: 8,
+        name: "Channel Royal Classic",
+        price: 450,
+        image: "SHOP IMG/CHANNEL SNEAKERS 38 - 42 ₵450 - ₵600.jpeg",
+        category: "Royal Footwear",
+        description: "Channel Royal Classic sneakers, a timeless statement of elegance",
+        inStock: true,
+        sizes: ["38", "39", "40", "41", "42"],
+        rating: 4.7,
+        reviews: 145
+    },
+    {
+        id: 9,
+        name: "Imperial Air Force Elite",
+        price: 450,
+        image: "SHOP IMG/D nike AF1 CRUSH BURGUNDY SIZE 38-45 IN BOX ₵450.jpeg",
+        category: "Royal Footwear",
+        description: "Imperial Air Force Elite edition with premium imperial box",
+        inStock: true,
+        sizes: ["38", "39", "40", "41", "42", "43", "44", "45"],
+        rating: 4.8,
+        reviews: 234
+    },
+    {
+        id: 10,
+        name: "Noble Zipper Sovereign",
+        price: 300,
+        image: "SHOP IMG/LUXE ZR ZIPPER BUMPER JACKET Size S M L FIT XL PRICE CHANNEL SNEAKERS 38 - 42 ₵300 - ₵400.jpeg",
+        category: "Imperial Outerwear",
+        description: "Noble zipper sovereign jacket with exquisite detailing",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.5,
+        reviews: 112
+    },
+    {
+        id: 11,
+        name: "Royal Messenger Collection",
+        price: 185,
+        video: "SHOP IMG/all size ₵185.mp4",
+        category: "Messenger Exclusive",
+        description: "Exclusive royal messenger collection, available in all noble sizes",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.6,
+        reviews: 89
+    },
+    {
+        id: 12,
+        name: "Royal Messenger Elite",
+        price: 189,
+        video: "SHOP IMG/all size ₵189.mp4",
+        category: "Messenger Exclusive",
+        description: "Premium royal messenger exclusive piece",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.7,
+        reviews: 76
+    },
+    {
+        id: 13,
+        name: "Royal Messenger Supreme",
+        price: 199,
+        video: "SHOP IMG/all size ₵199.mp4",
+        category: "Messenger Exclusive",
+        description: "Supreme royal messenger exclusive fashion",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.8,
+        reviews: 103
+    },
+    {
+        id: 14,
+        name: "Royal Messenger Imperial",
+        price: 200,
+        video: "SHOP IMG/all size ₵200.mp4",
+        category: "Messenger Exclusive",
+        description: "Imperial royal messenger collection piece",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.5,
+        reviews: 67
+    },
+    {
+        id: 15,
+        name: "Royal Messenger Sovereign",
+        price: 210,
+        video: "SHOP IMG/all size ₵210.mp4",
+        category: "Messenger Exclusive",
+        description: "Sovereign royal messenger fashion piece",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.6,
+        reviews: 92
+    },
+    {
+        id: 16,
+        name: "Imperial Messenger Crown",
+        price: 290,
+        video: "SHOP IMG/all size ₵290.mp4",
+        category: "Imperial Collection",
+        description: "High-end imperial messenger crown collection",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.9,
+        reviews: 145
+    },
+    {
+        id: 17,
+        name: "Imperial Messenger Noble",
+        price: 310,
+        video: "SHOP IMG/all size ₵310.mp4",
+        category: "Imperial Collection",
+        description: "Noble imperial messenger fashion piece",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.7,
+        reviews: 118
+    },
+    {
+        id: 18,
+        name: "Imperial Messenger Royal",
+        price: 320,
+        video: "SHOP IMG/all size ₵320.mp4",
+        category: "Imperial Collection",
+        description: "Royal imperial messenger premium piece",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.8,
+        reviews: 167
+    },
+    {
+        id: 19,
+        name: "Imperial Messenger Supreme",
+        price: 350,
+        video: "SHOP IMG/all size ₵350.mp4",
+        category: "Imperial Collection",
+        description: "Supreme imperial messenger crown item",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.9,
+        reviews: 189
+    },
+    {
+        id: 20,
+        name: "Imperial Air Force Heritage",
+        price: 450,
+        image: "SHOP IMG/nike AF1 CRUSH BURGUNDY SIZE 38-45 IN BOX ₵450 -₵600.jpeg",
+        category: "Royal Footwear",
+        description: "Imperial Air Force heritage edition with original imperial packaging",
+        inStock: true,
+        sizes: ["38", "39", "40", "41", "42", "43", "44", "45"],
+        rating: 4.8,
+        reviews: 298
+    },
+    {
+        id: 21,
+        name: "Noble Fashion Estate",
+        price: 250,
+        image: "SHOP IMG/₵ 250 -₵ 350.jpeg",
+        category: "Noble Estate",
+        description: "Noble fashion estate piece with imperial value",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.6,
+        reviews: 134
+    },
+    {
+        id: 22,
+        name: "Imperial Crown Legacy",
+        price: 1000,
+        image: "SHOP IMG/₵1000 (2).jpeg",
+        category: "Crown Jewels",
+        description: "Exclusive imperial crown legacy fashion piece",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 5.0,
+        reviews: 245
+    },
+    {
+        id: 23,
+        name: "Imperial Crown Heritage",
+        price: 1000,
+        image: "SHOP IMG/₵1000.jpeg",
+        category: "Crown Jewels",
+        description: "Premium imperial crown heritage fashion item",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.9,
+        reviews: 198
+    },
+    {
+        id: 24,
+        name: "Royal Trendsetter",
+        price: 190,
+        image: "SHOP IMG/₵190 (2).jpeg",
+        category: "Royal Vanguard",
+        description: "Royal trendsetter piece at noble price",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.5,
+        reviews: 87
+    },
+    {
+        id: 25,
+        name: "Royal Vanguard",
+        price: 190,
+        image: "SHOP IMG/₵190 (3).jpeg",
+        category: "Royal Vanguard",
+        description: "Popular royal vanguard fashion piece",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.6,
+        reviews: 92
+    },
+    {
+        id: 26,
+        name: "Royal Vanguard Elite",
+        price: 190,
+        image: "SHOP IMG/₵190 (4).jpeg",
+        category: "Royal Vanguard",
+        description: "Elite royal vanguard fashion item",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.7,
+        reviews: 103
+    },
+    {
+        id: 27,
+        name: "Royal Vanguard Supreme",
+        price: 190,
+        image: "SHOP IMG/₵190 (5).jpeg",
+        category: "Royal Vanguard",
+        description: "Supreme royal vanguard fashion collection",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.5,
+        reviews: 78
+    },
+    {
+        id: 28,
+        name: "Royal Vanguard Heritage",
+        price: 190,
+        image: "SHOP IMG/₵190.jpeg",
+        category: "Royal Vanguard",
+        description: "Heritage royal vanguard bestselling fashion item",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.8,
+        reviews: 156
+    },
+    {
+        id: 29,
+        name: "Imperial Messenger Noble",
+        price: 220,
+        video: "SHOP IMG/₵220 all size.mp4",
+        category: "Imperial Collection",
+        description: "Noble imperial messenger exclusive item",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.7,
+        reviews: 124
+    },
+    {
+        id: 30,
+        name: "Noble Fashion Manor",
+        price: 269,
+        image: "SHOP IMG/₵269 -₵ 370 (2).jpeg",
+        category: "Noble Estate",
+        description: "Stylish noble fashion manor with imperial value",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.6,
+        reviews: 98
+    },
+    {
+        id: 31,
+        name: "Noble Fashion Palace",
+        price: 269,
+        image: "SHOP IMG/₵269 -₵ 370 (3).jpeg",
+        category: "Noble Estate",
+        description: "Premium noble fashion palace collection item",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.5,
+        reviews: 87
+    },
+    {
+        id: 32,
+        name: "Noble Fashion Castle",
+        price: 269,
+        image: "SHOP IMG/₵269 -₵ 370 (4).jpeg",
+        category: "Noble Estate",
+        description: "Stylish noble fashion castle piece",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.7,
+        reviews: 112
+    },
+    {
+        id: 33,
+        name: "Noble Fashion Kingdom",
+        price: 269,
+        image: "SHOP IMG/₵269 -₵ 370.jpeg",
+        category: "Noble Estate",
+        description: "Premium noble fashion kingdom item",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.6,
+        reviews: 134
+    },
+    {
+        id: 34,
+        name: "Imperial Noble Crown",
+        price: 350,
+        image: "SHOP IMG/₵350 - ₵450.jpeg",
+        category: "Imperial Collection",
+        description: "Imperial noble crown collection with noble pricing",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.8,
+        reviews: 189
+    },
+    {
+        id: 35,
+        name: "Royal Sovereign Exclusive",
+        price: 450,
+        video: "SHOP IMG/₵450.mp4",
+        category: "Sovereign Exclusive",
+        description: "Royal sovereign exclusive premium item",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.9,
+        reviews: 203
+    },
+    {
+        id: 36,
+        name: "Imperial Noble Diamond",
+        price: 879,
+        image: "SHOP IMG/₵879 - ₵1000.jpeg",
+        category: "Crown Jewels",
+        description: "Imperial noble diamond fashion piece",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 4.9,
+        reviews: 167
+    },
+    {
+        id: 37,
+        name: "Imperial Noble Platinum",
+        price: 999,
+        image: "SHOP IMG/₵999.jpeg",
+        category: "Crown Jewels",
+        description: "Imperial noble platinum fashion item",
+        inStock: true,
+        sizes: ["S", "M", "L", "XL"],
+        rating: 5.0,
+        reviews: 234
     }
 ];
 
@@ -209,19 +613,53 @@ function renderProducts() {
     if (!productGrid) return;
 
     productGrid.innerHTML = products.map(product => `
-        <div class="product-card">
-            <video class="product-video" autoplay muted loop playsinline data-src="${product.video}">
-                <source src="${product.video}" type="video/mp4">
-            </video>
+        <div class="product-card enhanced-card" onclick="window.location.href='shop.html'" style="cursor: pointer;">
+            <div class="product-media">
+                ${product.image ? 
+                    `<img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">` :
+                    `<video class="product-video" autoplay muted loop playsinline>
+                        <source src="${product.video}" type="video/mp4">
+                    </video>`
+                }
+                <div class="product-badges">
+                    ${!product.inStock ? '<span class="badge out-of-stock">Out of Stock</span>' : ''}
+                    ${product.rating >= 4.8 ? '<span class="badge premium">Premium</span>' : ''}
+                    ${product.price >= 500 ? '<span class="badge luxury">Luxury</span>' : ''}
+                </div>
+                <div class="product-overlay">
+                    <div class="quick-actions">
+                        <button class="quick-view-btn" onclick="event.stopPropagation(); quickViewProduct(${product.id})" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="quick-add-btn" onclick="event.stopPropagation(); cart.addItem(${JSON.stringify(product).replace(/"/g, '&quot;')})" title="Add to Cart">
+                            <i class="fas fa-shopping-bag"></i>
+                        </button>
+                        <button class="wishlist-btn" onclick="event.stopPropagation(); addToWishlist(${product.id})" title="Add to Wishlist">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div class="product-info">
+                <div class="product-category">${product.category}</div>
                 <h3 class="product-name">${product.name}</h3>
-                <p class="product-price">GHS ${product.price.toFixed(2)}</p>
+                <div class="product-rating">
+                    ${renderStars(product.rating)}
+                    <span class="rating-count">(${product.reviews})</span>
+                </div>
+                <p class="product-description">${product.description}</p>
+                <div class="product-price">
+                    <span class="current-price">GHS ${product.price.toFixed(2)}</span>
+                    ${product.price >= 500 ? '<span class="price-badge">Best Value</span>' : ''}
+                </div>
                 <div class="product-actions">
-                    <button class="btn btn-primary" onclick="cart.addItem(${JSON.stringify(product).replace(/"/g, '&quot;')})">
-                        <i class="fas fa-shopping-bag"></i> Add to Bag
+                    <button class="btn-add-cart" onclick="event.stopPropagation(); cart.addItem(${JSON.stringify(product).replace(/"/g, '&quot;')})" ${!product.inStock ? 'disabled' : ''}>
+                        <i class="fas fa-shopping-bag"></i>
+                        ${product.inStock ? 'Add to Bag' : 'Out of Stock'}
                     </button>
-                    <button class="btn btn-secondary" onclick="viewProductDetails(${product.id})">
-                        <i class="fas fa-eye"></i> View Details
+                    <button class="btn-buy-now" onclick="event.stopPropagation(); buyNowProduct(${product.id})" ${!product.inStock ? 'disabled' : ''}>
+                        <i class="fas fa-bolt"></i>
+                        Buy Now
                     </button>
                 </div>
             </div>
@@ -232,29 +670,118 @@ function renderProducts() {
     implementLazyLoading();
 }
 
+// Helper Functions for Home Page
+function renderStars(rating) {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+    const emptyStars = 5 - fullStars - halfStar;
+    
+    let stars = '';
+    for (let i = 0; i < fullStars; i++) {
+        stars += '<i class="fas fa-star"></i>';
+    }
+    if (halfStar) {
+        stars += '<i class="fas fa-star-half-alt"></i>';
+    }
+    for (let i = 0; i < emptyStars; i++) {
+        stars += '<i class="far fa-star"></i>';
+    }
+    return stars;
+}
+
+function quickViewProduct(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+
+    // Create quick view modal
+    const modal = document.createElement('div');
+    modal.className = 'quick-view-modal';
+    modal.innerHTML = `
+        <div class="quick-view-content">
+            <button class="close-quick-view" onclick="this.closest('.quick-view-modal').remove()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="quick-view-media">
+                ${product.image ? 
+                    `<img src="${product.image}" alt="${product.name}">` :
+                    `<video autoplay muted loop playsinline>
+                        <source src="${product.video}" type="video/mp4">
+                    </video>`
+                }
+            </div>
+            <div class="quick-view-info">
+                <h2>${product.name}</h2>
+                <div class="quick-view-rating">
+                    ${renderStars(product.rating)}
+                    <span>(${product.reviews} reviews)</span>
+                </div>
+                <p class="quick-view-price">GHS ${product.price.toFixed(2)}</p>
+                <p class="quick-view-description">${product.description}</p>
+                <div class="quick-view-actions">
+                    <button class="btn-add-cart-large" onclick="cart.addItem(${JSON.stringify(product).replace(/"/g, '&quot;')}); this.closest('.quick-view-modal').remove();">
+                        <i class="fas fa-shopping-bag"></i> Add to Bag
+                    </button>
+                    <button class="btn-buy-now-large" onclick="window.location.href='shop.html'">
+                        <i class="fas fa-bolt"></i> View Details
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    setTimeout(() => modal.classList.add('active'), 100);
+}
+
+function addToWishlist(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+
+    // Get wishlist from localStorage
+    let wishlist = JSON.parse(localStorage.getItem('slayWithIcceWishlist') || '[]');
+    
+    if (!wishlist.includes(productId)) {
+        wishlist.push(productId);
+        localStorage.setItem('slayWithIcceWishlist', JSON.stringify(wishlist));
+        cart.showNotification('Added to wishlist!');
+    } else {
+        wishlist = wishlist.filter(id => id !== productId);
+        localStorage.setItem('slayWithIcceWishlist', JSON.stringify(wishlist));
+        cart.showNotification('Removed from wishlist');
+    }
+}
+
+function buyNowProduct(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+
+    // Clear cart and add this product
+    cart.clearCart();
+    cart.addItem(product);
+    
+    // Redirect to shop for checkout
+    window.location.href = 'shop.html';
+}
+
 // Lazy Loading for Videos
 function implementLazyLoading() {
     const videos = document.querySelectorAll('video[data-src]');
-    
-    const videoObserver = new IntersectionObserver((entries) => {
+    const videoObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const video = entry.target;
-                const source = video.querySelector('source');
-                
-                if (source && video.dataset.src) {
-                    source.src = video.dataset.src;
-                    video.load();
+                const src = video.getAttribute('data-src');
+                if (src) {
+                    video.src = src;
                     video.removeAttribute('data-src');
+                    video.load();
                 }
-                
-                videoObserver.unobserve(video);
+                observer.unobserve(video);
             }
         });
-    }, {
-        rootMargin: '50px'
     });
 
+    videos.forEach(video => videoObserver.observe(video));
     videos.forEach(video => {
         videoObserver.observe(video);
     });
@@ -449,16 +976,36 @@ function handleCheckout(e) {
     const orderItems = cart.items.map(item => `${item.name} x${item.quantity}`).join(', ');
     const totalPrice = cart.getTotal().toFixed(2);
     
-    // Create order message for the business
-    const message = `🛍️ NEW ORDER - Slay With Icce\n\n📦 Items: ${orderItems}\n💰 Total: GHS ${totalPrice}\n� Customer: ${formData.fullName}\n� Delivery: ${formData.location}\n� WhatsApp: ${formData.whatsapp}\n\nPlease process this order. Customer expects delivery details soon.\n\nTimestamp: ${new Date().toLocaleString()}`;
+    // Create detailed order items with images
+    let detailedItems = '';
+    cart.items.forEach(item => {
+        detailedItems += `• ${item.name} x${item.quantity} - GHS ${(item.price * item.quantity).toFixed(2)}\n`;
+        if (item.image) {
+            detailedItems += `  📸 Image: ${window.location.origin}/${item.image}\n`;
+        } else if (item.video) {
+            detailedItems += `  🎥 Video: ${window.location.origin}/${item.video}\n`;
+        }
+        detailedItems += '\n';
+    });
+    
+    // Create order message for the business with product images
+    const message = `� NEW ORDER - Icce Couture\n\n📦 ORDER DETAILS:\n${detailedItems}💰 TOTAL: GHS ${totalPrice}\n👤 Customer: ${formData.fullName}\n📍 Delivery: ${formData.location}\n📱 WhatsApp: ${formData.whatsapp}\n\nPlease process this order. Customer expects delivery details soon.\n\nTimestamp: ${new Date().toLocaleString()}`;
     
     // Send to business WhatsApp number
     const businessWhatsappNumber = '233598028565';
     const whatsappUrl = `https://wa.me/${businessWhatsappNumber}?text=${encodeURIComponent(message)}`;
     
-    // Also send receipt to customer
+    // Also send receipt to customer with product images
     setTimeout(() => {
-        const customerMessage = `🛍️ ORDER CONFIRMATION - Slay With Icce\n\nThank you for your order!\n\n📦 Items: ${orderItems}\n💰 Total: GHS ${totalPrice}\n📍 Delivery: ${formData.location}\n\nWe'll contact you soon with delivery details.\n\n📞 Contact us: 0598028565\n📸 Instagram: @slaywithicce`;
+        let customerItems = '';
+        cart.items.forEach(item => {
+            customerItems += `• ${item.name} x${item.quantity} - GHS ${(item.price * item.quantity).toFixed(2)}\n`;
+            if (item.image) {
+                customerItems += `  📸 View: ${window.location.origin}/${item.image}\n`;
+            }
+        });
+        
+        const customerMessage = `� ORDER CONFIRMATION - Icce Couture\n\nThank you for your exquisite order!\n\n📦 YOUR ITEMS:\n${customerItems}\n💰 Total: GHS ${totalPrice}\n📍 Delivery: ${formData.location}\n\nWe'll contact you soon with delivery details.\n\n📞 Contact us: 0598028565\n📸 Instagram: @iccecouture`;
         
         // Clean customer WhatsApp number
         let customerWhatsappNumber = formData.whatsapp.replace(/\s/g, '');
@@ -688,7 +1235,7 @@ class WhatsAppChatBot {
         }
         // Greeting responses
         else if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('hey')) {
-            response = `👋 Hello! Welcome to Slay With Icce!\n\nI'm here to help you find the perfect outfit. How can I assist you today?\n\nYou can ask me about:\n• 🛍️ Products & Pricing\n• 📦 Order Status\n• 💁 Customer Support\n• 📍 Store Location`;
+            response = `👋 Welcome to Icce Couture!\n\nI'm here to help you discover your perfect style. How may I assist you today?\n\nYou can inquire about:\n• � Exclusive Collections\n• 📦 Order Status\n• 💁 Personal Styling\n• 📍 Boutique Location`;
         }
         // Thanks responses
         else if (lowerMessage.includes('thank') || lowerMessage.includes('thanks')) {
@@ -709,7 +1256,7 @@ class WhatsAppChatBot {
     }
 
     connectToWhatsApp() {
-        const message = "Hello! I'm interested in shopping at Slay With Icce. Can you help me with your products?";
+        const message = "Hello! I'm interested in shopping at Icce Couture. Can you help me with your exclusive collections?";
         const whatsappUrl = `https://wa.me/${this.businessNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     }

@@ -40,9 +40,14 @@ class CartPage {
 
         orderItems.innerHTML = this.cart.items.map(item => `
             <div class="order-item" data-item-id="${item.id}">
-                <video class="order-item-video" autoplay muted loop playsinline>
-                    <source src="${item.video}" type="video/mp4">
-                </video>
+                <div class="order-item-media">
+                    ${item.image ? 
+                        `<img src="${item.image}" alt="${item.name}" class="order-item-image">` :
+                        `<video class="order-item-video" autoplay muted loop playsinline>
+                            <source src="${item.video}" type="video/mp4">
+                        </video>`
+                    }
+                </div>
                 <div class="order-item-info">
                     <h3 class="order-item-name">${item.name}</h3>
                     <p class="order-item-price">GHS ${item.price.toFixed(2)}</p>
@@ -191,8 +196,18 @@ class CartPage {
             return;
         }
 
-        // Generate order message
-        const orderItems = this.cart.items.map(item => `${item.name} x${item.quantity}`).join(', ');
+        // Generate detailed order message with images
+        let detailedOrderItems = '';
+        this.cart.items.forEach(item => {
+            detailedOrderItems += `• ${item.name} x${item.quantity} - GHS ${(item.price * item.quantity).toFixed(2)}\n`;
+            if (item.image) {
+                detailedOrderItems += `  📸 Image: ${window.location.origin}/${item.image}\n`;
+            } else if (item.video) {
+                detailedOrderItems += `  🎥 Video: ${window.location.origin}/${item.video}\n`;
+            }
+            detailedOrderItems += '\n';
+        });
+
         const subtotal = this.cart.getTotal();
         const deliveryFee = subtotal >= 300 ? 0 : 50;
         let discount = 0;
@@ -205,7 +220,7 @@ class CartPage {
         
         const total = subtotal + deliveryFee - discount;
 
-        const message = `💰 PAYMENT REQUEST - Slay With Icce\n\n📦 Order Details:\n${orderItems}\n\n💸 Payment Summary:\n• Subtotal: GHS ${subtotal.toFixed(2)}\n• Delivery: ${deliveryFee === 0 ? 'FREE' : `GHS ${deliveryFee.toFixed(2)}`}\n${discount > 0 ? `• Discount: -GHS ${discount.toFixed(2)}\n` : ''}• Total: GHS ${total.toFixed(2)}\n\n📞 Please contact me to arrange payment and delivery.\n\nThank you!`;
+        const message = `💰 PAYMENT REQUEST - Icce Couture\n\n📦 ORDER DETAILS:\n${detailedOrderItems}\n💸 PAYMENT SUMMARY:\n• Subtotal: GHS ${subtotal.toFixed(2)}\n• Delivery: ${deliveryFee === 0 ? 'FREE' : `GHS ${deliveryFee.toFixed(2)}`}\n${discount > 0 ? `• Discount: -GHS ${discount.toFixed(2)}\n` : ''}• Total: GHS ${total.toFixed(2)}\n\n📞 Please contact me to arrange payment and delivery.\n\nThank you for choosing Icce Couture!`;
 
         const whatsappUrl = `https://wa.me/233598028565?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slay With Icce - C'est Chic</title>
+    <title>Icce Classic - Royal Elegance</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,10 +13,14 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <img src="images/icelogo.png" alt="IC Logo" class="logo">
-                <span class="brand-name">Slay With Icce</span>
+                <img src="images/icelogo.png" alt="Icce Classic" class="logo">
+                <span class="brand-name">Icce Classic</span>
             </div>
             <div class="nav-actions">
+                <a href="shop.html" class="nav-link shop-link">
+                    <i class="fas fa-store"></i>
+                    <span>Shop</span>
+                </a>
                 <button class="cart-btn" id="cartBtn">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-count" id="cartCount">0</span>
@@ -25,27 +29,53 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-brand">
-                <img src="images/icelogo.png" alt="IC Logo" class="hero-logo">
-                <h1 class="hero-title">Slay With Icce</h1>
-                <p class="hero-tagline">C'est Chic</p>
-            </div>
-            <div class="hero-video">
-                <video autoplay muted loop playsinline>
-                    <source src="images/home.mp4" type="video/mp4">
-                </video>
+    <!-- Classical Hero Section -->
+    <section class="shop-header-classical">
+        <div class="container">
+            <div class="shop-header-content-classical">
+                <div class="classical-divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-icon">✦</span>
+                    <span class="divider-line"></span>
+                </div>
+                <h1 class="shop-title-classical">Slay With Icce</h1>
+                <p class="shop-subtitle-classical">Curated Elegance • Timeless Style</p>
+                <div class="classical-ornament">
+                    <span class="ornament-left">❦</span>
+                    <span class="ornament-center">✧</span>
+                    <span class="ornament-right">❦</span>
+                </div>
+                <div class="hero-video-classical" onclick="window.location.href='shop.html'" style="cursor: pointer;">
+                    <video autoplay muted loop playsinline>
+                        <source src="images/home.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <div class="video-prompt">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Click to Shop Collection</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Products Section -->
-    <section class="products">
+    <section class="products-classical">
         <div class="container">
-            <h2 class="section-title">Featured Collection</h2>
-            <div class="product-grid" id="productGrid">
+            <div class="classical-divider">
+                <span class="divider-line"></span>
+                <span class="divider-icon">✦</span>
+                <span class="divider-line"></span>
+            </div>
+            <h2 class="section-title-classical">Featured Collection</h2>
+            <p class="section-subtitle-classical">Handpicked pieces from our exclusive range</p>
+            <div class="classical-ornament">
+                <span class="ornament-left">❦</span>
+                <span class="ornament-center">✧</span>
+                <span class="ornament-right">❦</span>
+            </div>
+            <div class="product-grid-classical" id="productGrid">
                 <!-- Products will be dynamically loaded here -->
             </div>
         </div>
@@ -213,6 +243,76 @@
             </div>
         </div>
     </div>
+
+    <!-- Classical Footer -->
+    <footer class="classical-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/icelogo.png" alt="Icce Classic" class="footer-logo">
+                    <h3 class="footer-brand-name">Icce Classic</h3>
+                    <p class="footer-tagline">Royal Elegance • Imperial Style</p>
+                </div>
+                
+                <div class="footer-sections">
+                    <div class="footer-section">
+                        <h4 class="footer-title">Royal Collections</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">Crown Jewels</a></li>
+                            <li><a href="#" class="footer-link">Imperial Collection</a></li>
+                            <li><a href="#" class="footer-link">Royal Vanguard</a></li>
+                            <li><a href="#" class="footer-link">Messenger Exclusive</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4 class="footer-title">Noble Services</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">Royal Styling</a></li>
+                            <li><a href="#" class="footer-link">Imperial Tailoring</a></li>
+                            <li><a href="#" class="footer-link">Noble Gift Service</a></li>
+                            <li><a href="#" class="footer-link">Royal Delivery</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4 class="footer-title">Contact</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Kumasi, Ghana</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>0598028565</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>+233598028565</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-instagram"></i>
+                                <span>@slaywithicce</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-divider">
+                    <span class="divider-ornament">✦</span>
+                    <span class="divider-line"></span>
+                    <span class="divider-ornament">✦</span>
+                    <span class="divider-line"></span>
+                    <span class="divider-ornament">✦</span>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2026 Slay With Icce. All rights reserved. • Crafted with elegance</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
