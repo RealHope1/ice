@@ -163,7 +163,7 @@ class ShopPage {
                     </div>
                     <p class="product-description">${product.description}</p>
                     <div class="product-price">
-                        <span class="current-price">GHS ${product.price.toFixed(2)}</span>
+                        <span class="current-price">₵ ${product.price.toFixed(2)}</span>
                         ${product.price >= 500 ? '<span class="price-badge">Best Value</span>' : ''}
                     </div>
                     <div class="product-sizes">
@@ -231,7 +231,7 @@ class ShopPage {
                         ${this.renderStars(product.rating)}
                         <span>(${product.reviews} reviews)</span>
                     </div>
-                    <p class="quick-view-price">GHS ${product.price.toFixed(2)}</p>
+                    <p class="quick-view-price">₵ ${product.price.toFixed(2)}</p>
                     <p class="quick-view-description">${product.description}</p>
                     <div class="quick-view-sizes">
                         <h4>Select Size:</h4>
@@ -396,7 +396,7 @@ class ShopPage {
                 </div>
                 <div class="cart-item-details">
                     <h4 class="cart-item-name">${item.name}</h4>
-                    <p class="cart-item-price">GHS ${item.price.toFixed(2)}</p>
+                    <p class="cart-item-price">₵ ${item.price.toFixed(2)}</p>
                     <div class="cart-item-quantity">
                         <button class="quantity-btn" onclick="shopPage.updateQuantity(${item.id}, ${item.quantity - 1})">
                             <i class="fas fa-minus"></i>
@@ -480,7 +480,7 @@ class ShopPage {
         orderSummaryItems.innerHTML = this.cart.items.map(item => `
             <div class="summary-item">
                 <span>${item.name} x${item.quantity}</span>
-                <span>GHS ${(item.price * item.quantity).toFixed(2)}</span>
+                <span>₵ ${(item.price * item.quantity).toFixed(2)}</span>
             </div>
         `).join('');
 
@@ -512,7 +512,7 @@ class ShopPage {
         const totalPrice = this.cart.getTotal().toFixed(2);
         
         // Create order message with product images
-        let message = `🛍️ NEW ORDER - Slay With Icce\n\n📦 Items: ${orderItems}\n💰 Total: GHS ${totalPrice}\n👤 Customer: ${formData.fullName}\n📍 Delivery: ${formData.location}\n📱 WhatsApp: ${formData.whatsapp}\n\n`;
+        let message = `🛍️ NEW ORDER - Slay With Icce\n\n📦 Items: ${orderItems}\n💰 Total: ₵ ${totalPrice}\n👤 Customer: ${formData.fullName}\n📍 Delivery: ${formData.location}\n📱 WhatsApp: ${formData.whatsapp}\n\n`;
         
         // Add product images to message
         message += `🖼️ Product Images:\n`;

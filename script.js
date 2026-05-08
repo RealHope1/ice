@@ -123,7 +123,7 @@ const products = [
     {
         id: 11,
         name: "Royal Messenger Collection",
-        price: 185,
+        price: 199,
         video: "SHOP IMG/all size ₵185.mp4",
         category: "Messenger Exclusive",
         description: "Exclusive royal messenger collection, available in all noble sizes",
@@ -135,7 +135,7 @@ const products = [
     {
         id: 12,
         name: "Royal Messenger Elite",
-        price: 189,
+        price: 199,
         video: "SHOP IMG/all size ₵189.mp4",
         category: "Messenger Exclusive",
         description: "Premium royal messenger exclusive piece",
@@ -279,7 +279,7 @@ const products = [
     {
         id: 24,
         name: "Royal Trendsetter",
-        price: 190,
+        price: 199,
         image: "SHOP IMG/₵190 (2).jpeg",
         category: "Royal Vanguard",
         description: "Royal trendsetter piece at noble price",
@@ -291,7 +291,7 @@ const products = [
     {
         id: 25,
         name: "Royal Vanguard",
-        price: 190,
+        price: 199,
         image: "SHOP IMG/₵190 (3).jpeg",
         category: "Royal Vanguard",
         description: "Popular royal vanguard fashion piece",
@@ -303,7 +303,7 @@ const products = [
     {
         id: 26,
         name: "Royal Vanguard Elite",
-        price: 190,
+        price: 199,
         image: "SHOP IMG/₵190 (4).jpeg",
         category: "Royal Vanguard",
         description: "Elite royal vanguard fashion item",
@@ -315,7 +315,7 @@ const products = [
     {
         id: 27,
         name: "Royal Vanguard Supreme",
-        price: 190,
+        price: 199,
         image: "SHOP IMG/₵190 (5).jpeg",
         category: "Royal Vanguard",
         description: "Supreme royal vanguard fashion collection",
@@ -327,7 +327,7 @@ const products = [
     {
         id: 28,
         name: "Royal Vanguard Heritage",
-        price: 190,
+        price: 199,
         image: "SHOP IMG/₵190.jpeg",
         category: "Royal Vanguard",
         description: "Heritage royal vanguard bestselling fashion item",
@@ -547,7 +547,7 @@ class Cart {
                 </video>
                 <div class="cart-item-info">
                     <div class="cart-item-name">${item.name}</div>
-                    <div class="cart-item-price">GHS ${item.price.toFixed(2)}</div>
+                    <div class="cart-item-price">₵ ${item.price.toFixed(2)}</div>
                     <div class="cart-item-quantity">
                         <button class="quantity-btn" onclick="cart.updateQuantity(${item.id}, ${item.quantity - 1})">
                             <i class="fas fa-minus"></i>
@@ -649,7 +649,7 @@ function renderProducts() {
                 </div>
                 <p class="product-description">${product.description}</p>
                 <div class="product-price">
-                    <span class="current-price">GHS ${product.price.toFixed(2)}</span>
+                    <span class="current-price">₵ ${product.price.toFixed(2)}</span>
                     ${product.price >= 500 ? '<span class="price-badge">Best Value</span>' : ''}
                 </div>
                 <div class="product-actions">
@@ -715,7 +715,7 @@ function quickViewProduct(productId) {
                     ${renderStars(product.rating)}
                     <span>(${product.reviews} reviews)</span>
                 </div>
-                <p class="quick-view-price">GHS ${product.price.toFixed(2)}</p>
+                <p class="quick-view-price">₵ ${product.price.toFixed(2)}</p>
                 <p class="quick-view-description">${product.description}</p>
                 <div class="quick-view-actions">
                     <button class="btn-add-cart-large" onclick="cart.addItem(${JSON.stringify(product).replace(/"/g, '&quot;')}); this.closest('.quick-view-modal').remove();">
@@ -809,7 +809,7 @@ function viewProductDetails(productId) {
                 </video>
                 <p style="font-size: 1.1rem; margin-bottom: 1rem;">${product.description}</p>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-                    <span style="font-size: 1.5rem; font-weight: 600; color: #D4AF37;">GHS ${product.price.toFixed(2)}</span>
+                    <span style="font-size: 1.5rem; font-weight: 600; color: #D4AF37;">₵ ${product.price.toFixed(2)}</span>
                     <span style="background: #f0f0f0; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">${product.category}</span>
                 </div>
                 <button class="btn btn-primary" style="width: 100%;" onclick="cart.addItem(${JSON.stringify(product).replace(/"/g, '&quot;')}); closeProductModal();">
@@ -902,7 +902,7 @@ function openCheckoutModal() {
         orderSummaryItems.innerHTML = cart.items.map(item => `
             <div class="summary-item">
                 <span>${item.name} x${item.quantity}</span>
-                <span>GHS ${(item.price * item.quantity).toFixed(2)}</span>
+                <span>₵ ${(item.price * item.quantity).toFixed(2)}</span>
             </div>
         `).join('');
     }
@@ -979,7 +979,7 @@ function handleCheckout(e) {
     // Create detailed order items with images
     let detailedItems = '';
     cart.items.forEach(item => {
-        detailedItems += `• ${item.name} x${item.quantity} - GHS ${(item.price * item.quantity).toFixed(2)}\n`;
+        detailedItems += `• ${item.name} x${item.quantity} - ₵ ${(item.price * item.quantity).toFixed(2)}\n`;
         if (item.image) {
             detailedItems += `  📸 Image: ${window.location.origin}/${item.image}\n`;
         } else if (item.video) {
@@ -989,7 +989,7 @@ function handleCheckout(e) {
     });
     
     // Create order message for the business with product images
-    const message = `� NEW ORDER - Icce Couture\n\n📦 ORDER DETAILS:\n${detailedItems}💰 TOTAL: GHS ${totalPrice}\n👤 Customer: ${formData.fullName}\n📍 Delivery: ${formData.location}\n📱 WhatsApp: ${formData.whatsapp}\n\nPlease process this order. Customer expects delivery details soon.\n\nTimestamp: ${new Date().toLocaleString()}`;
+    const message = `� NEW ORDER - Icce Couture\n\n📦 ORDER DETAILS:\n${detailedItems}💰 TOTAL: ₵ ${totalPrice}\n👤 Customer: ${formData.fullName}\n📍 Delivery: ${formData.location}\n📱 WhatsApp: ${formData.whatsapp}\n\nPlease process this order. Customer expects delivery details soon.\n\nTimestamp: ${new Date().toLocaleString()}`;
     
     // Send to business WhatsApp number
     const businessWhatsappNumber = '233598028565';
@@ -999,13 +999,13 @@ function handleCheckout(e) {
     setTimeout(() => {
         let customerItems = '';
         cart.items.forEach(item => {
-            customerItems += `• ${item.name} x${item.quantity} - GHS ${(item.price * item.quantity).toFixed(2)}\n`;
+            customerItems += `• ${item.name} x${item.quantity} - ₵ ${(item.price * item.quantity).toFixed(2)}\n`;
             if (item.image) {
                 customerItems += `  📸 View: ${window.location.origin}/${item.image}\n`;
             }
         });
         
-        const customerMessage = `� ORDER CONFIRMATION - Icce Couture\n\nThank you for your exquisite order!\n\n📦 YOUR ITEMS:\n${customerItems}\n💰 Total: GHS ${totalPrice}\n📍 Delivery: ${formData.location}\n\nWe'll contact you soon with delivery details.\n\n📞 Contact us: 0598028565\n📸 Instagram: @iccecouture`;
+        const customerMessage = `� ORDER CONFIRMATION - Icce Couture\n\nThank you for your exquisite order!\n\n📦 YOUR ITEMS:\n${customerItems}\n💰 Total: ₵ ${totalPrice}\n📍 Delivery: ${formData.location}\n\nWe'll contact you soon with delivery details.\n\n📞 Contact us: 0598028565\n📸 Instagram: @iccecouture`;
         
         // Clean customer WhatsApp number
         let customerWhatsappNumber = formData.whatsapp.replace(/\s/g, '');
@@ -1215,7 +1215,7 @@ class WhatsAppChatBot {
 
         // Product-related responses
         if (lowerMessage.includes('product') || lowerMessage.includes('browse') || lowerMessage.includes('shop')) {
-            response = `🛍️ Our Featured Collection:\n\n• Elegant Evening Dress - GHS 450\n• Chic Casual Outfit - GHS 280\n• Luxury Party Wear - GHS 520\n• Trendy Street Style - GHS 350\n• Classic Business Wear - GHS 420\n\nAll items are available for immediate delivery! Would you like to know more about any specific item?`;
+            response = `🛍️ Our Featured Collection:\n\n• Elegant Evening Dress - ₵ 450\n• Chic Casual Outfit - ₵ 280\n• Luxury Party Wear - ₵ 520\n• Trendy Street Style - ₵ 350\n• Classic Business Wear - ₵ 420\n\nAll items are available for immediate delivery! Would you like to know more about any specific item?`;
         }
         // Order status responses
         else if (lowerMessage.includes('order') || lowerMessage.includes('status') || lowerMessage.includes('delivery')) {
@@ -1231,7 +1231,7 @@ class WhatsAppChatBot {
         }
         // Price-related responses
         else if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('how much')) {
-            response = `💰 Pricing Information:\n\nOur prices range from GHS 280 - GHS 520\n\n• Casual Wear: GHS 280-350\n• Business Wear: GHS 420\n• Party Wear: GHS 520\n• Evening Wear: GHS 450\n\nAll prices include standard delivery within Kumasi. Express delivery available for extra GHS 50.`;
+            response = `💰 Pricing Information:\n\nOur prices range from ₵ 280 - ₵ 520\n\n• Casual Wear: ₵ 280-350\n• Business Wear: ₵ 420\n• Party Wear: ₵ 520\n• Evening Wear: ₵ 450\n\nAll prices include standard delivery within Kumasi. Express delivery available for extra ₵ 50.`;
         }
         // Greeting responses
         else if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('hey')) {
@@ -1239,7 +1239,7 @@ class WhatsAppChatBot {
         }
         // Thanks responses
         else if (lowerMessage.includes('thank') || lowerMessage.includes('thanks')) {
-            response = `😊 You're welcome! We're always happy to help.\n\nIs there anything else I can assist you with today? Remember, we offer free delivery within Kumasi for orders above GHS 300!`;
+            response = `😊 You're welcome! We're always happy to help.\n\nIs there anything else I can assist you with today? Remember, we offer free delivery within Kumasi for orders above ₵ 300!`;
         }
         // Default response with options
         else {
