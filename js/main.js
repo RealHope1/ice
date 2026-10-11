@@ -362,12 +362,14 @@ function initCatalogue() {
 
     // Filter and render products
     function filterAndRender() {
-        const searchTerm = searchInput.value.toLowerCase();
+        const rawTerm = searchInput.value.trim();
+        const searchTerm = rawTerm.replace(/[^0-9]/g, '');
         const sortBy = sortFilter.value;
 
         let filtered = products.filter(product => {
-            const matchesSearch = product.id.toString().includes(searchTerm);
-            return matchesSearch;
+            if (rawTerm && !searchTerm) return false;
+            const id = product.id.toString();
+            return id.includes(searchTerm) || pieceNumber(product.id).includes(searchTerm);
         });
 
         // Sort
