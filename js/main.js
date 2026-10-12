@@ -3,6 +3,11 @@
 // WhatsApp Configuration
 const WHATSAPP_NUMBER = '233247559387';
 const WHATSAPP_DISPLAY = '024 755 9387';
+const WA_ICON = '<svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>';
+
+function pieceNumber(id) {
+    return String(id).padStart(2, '0');
+}
 
 // Sample Product Data - Images Only
 const sampleProducts = [
@@ -125,7 +130,7 @@ class HeroCarousel {
 
     init() {
         // Create slides from assets - static images only for speed
-        const images = ['1.jpeg', '2.jpeg', '3.jpeg', '4.jpeg', '5.jpeg'];
+        const images = ['6.jpeg', '13.jpeg', '8.jpeg', '3.jpeg', '15.jpeg'];
 
         images.forEach((image, index) => {
             const slide = document.createElement('div');
@@ -134,15 +139,17 @@ class HeroCarousel {
             const img = document.createElement('img');
             img.src = `assets/images/${image}`;
             img.alt = `Luxe by Icce - Slide ${index + 1}`;
-            img.loading = 'lazy';
+            img.loading = index === 0 ? 'eager' : 'lazy';
             slide.appendChild(img);
 
             this.track.appendChild(slide);
             this.slides.push(slide);
 
             // Create indicator
-            const indicator = document.createElement('div');
+            const indicator = document.createElement('button');
+            indicator.type = 'button';
             indicator.className = 'carousel-indicator' + (index === 0 ? ' active' : '');
+            indicator.setAttribute('aria-label', `Go to slide ${index + 1}`);
             indicator.addEventListener('click', () => this.goToSlide(index));
             this.indicators.appendChild(indicator);
         });
@@ -153,9 +160,26 @@ class HeroCarousel {
 
         // Keyboard support
         document.addEventListener('keydown', (e) => {
+            if (e.target.closest('input, textarea, select')) return;
             if (e.key === 'ArrowLeft') this.prev();
             if (e.key === 'ArrowRight') this.next();
         });
+
+        // Gentle autoplay, paused while hovering
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            this.startAutoplay();
+            this.container.addEventListener('mouseenter', () => this.stopAutoplay());
+            this.container.addEventListener('mouseleave', () => this.startAutoplay());
+        }
+    }
+
+    startAutoplay() {
+        this.stopAutoplay();
+        this.timer = setInterval(() => this.next(), 5500);
+    }
+
+    stopAutoplay() {
+        clearInterval(this.timer);
     }
 
     goToSlide(index) {
@@ -184,26 +208,33 @@ class HeroCarousel {
     }
 }
 
-// Render product card - Image only
+// Render product card
 function renderProductCard(product) {
-    const card = document.createElement('div');
-    card.className = 'product-card';
+    const card = document.createElement('article');
+    card.className = 'product-card reveal';
     card.innerHTML = `
         <div class="product-image">
-            <img src="assets/images/${product.image}" alt="Product ${product.id}" loading="lazy">
+            <img src="assets/images/${product.image}" alt="Luxe by Icce piece No. ${pieceNumber(product.id)}" loading="lazy">
             <div class="product-badges">
-                ${product.new ? '<span class="product-badge badge-new">New Release</span>' : ''}
+                ${product.new ? '<span class="product-badge badge-new">New</span>' : ''}
             </div>
+            <button class="quick-view" type="button">Quick View</button>
         </div>
         <div class="product-info">
-            <p class="product-price">Contact us on WhatsApp for pricing</p>
+            <p class="product-category">Luxe Collection</p>
+            <h3 class="product-name">Piece No. ${pieceNumber(product.id)}</h3>
+            <p class="product-price">Price on request</p>
             <div class="product-actions">
-                <a href="${getWhatsAppURL(product)}" target="_blank" class="btn btn-whatsapp btn-sm">
-                    📱 Enquire on WhatsApp
+                <a href="${getWhatsAppURL(product)}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
+                    ${WA_ICON} Enquire on WhatsApp
                 </a>
             </div>
         </div>
     `;
+    card.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+        if (productModal) productModal.open(product);
+    });
     return card;
 }
 
@@ -248,15 +279,22 @@ class ProductModal {
         this.body.innerHTML = `
             <div class="modal-product-layout">
                 <div class="modal-media">
-                    <img src="assets/images/${product.image}" alt="Product ${product.id}" loading="lazy">
+                    <img src="assets/images/${product.image}" alt="Luxe by Icce piece No. ${pieceNumber(product.id)}">
                 </div>
                 <div class="modal-details">
-                    <h2 class="product-name">Product #${product.id}</h2>
-                    <p class="product-description">Beautiful item from our collection. Contact us for full details and pricing.</p>
-                    <p class="product-price">Contact us on WhatsApp for pricing and availability</p>
+                    <p class="product-category">Luxe Collection</p>
+                    <h2 class="product-name">Piece No. ${pieceNumber(product.id)}</h2>
+                    <div class="ornament ornament-left" aria-hidden="true"><span>&#10022;</span></div>
+                    <p class="product-description">A beautiful piece from our collection, carefully selected for timeless style. Contact us for full details and pricing.</p>
+                    <p class="product-price">Price on request &mdash; enquire on WhatsApp for pricing and availability</p>
+                    <ul class="modal-perks">
+                        <li>Delivery throughout Ghana</li>
+                        <li>Mobile money, bank transfer &amp; cash on delivery (Accra)</li>
+                        <li>Personal assistance on WhatsApp</li>
+                    </ul>
                     <div class="modal-actions">
-                        <a href="${getWhatsAppURL(product)}" target="_blank" class="btn btn-whatsapp">
-                            <span class="whatsapp-icon">📱</span>
+                        <a href="${getWhatsAppURL(product)}" target="_blank" rel="noopener" class="btn btn-whatsapp">
+                            ${WA_ICON}
                             Enquire on WhatsApp
                         </a>
                     </div>
@@ -265,6 +303,7 @@ class ProductModal {
         `;
         this.modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        this.closeBtn.focus();
     }
 
     close() {
@@ -323,12 +362,14 @@ function initCatalogue() {
 
     // Filter and render products
     function filterAndRender() {
-        const searchTerm = searchInput.value.toLowerCase();
+        const rawTerm = searchInput.value.trim();
+        const searchTerm = rawTerm.replace(/[^0-9]/g, '');
         const sortBy = sortFilter.value;
 
         let filtered = products.filter(product => {
-            const matchesSearch = product.id.toString().includes(searchTerm);
-            return matchesSearch;
+            if (rawTerm && !searchTerm) return false;
+            const id = product.id.toString();
+            return id.includes(searchTerm) || pieceNumber(product.id).includes(searchTerm);
         });
 
         // Sort
@@ -356,6 +397,7 @@ function initCatalogue() {
             filtered.forEach(product => {
                 grid.appendChild(renderProductCard(product));
             });
+            observeReveals(grid);
         }
     }
 
@@ -466,6 +508,7 @@ function initHomepage() {
         products.forEach(product => {
             newArrivalsGrid.appendChild(renderProductCard(product));
         });
+        observeReveals(newArrivalsGrid);
     }
 
     // Editorial Gallery - Videos with autoplay
@@ -475,7 +518,7 @@ function initHomepage() {
 
         videos.forEach(video => {
             const div = document.createElement('div');
-            div.className = 'gallery-item';
+            div.className = 'gallery-item reveal';
             const videoElement = document.createElement('video');
             videoElement.src = `assets/videos/${video}`;
             videoElement.muted = true;
@@ -486,10 +529,49 @@ function initHomepage() {
             div.appendChild(videoElement);
             editorialGallery.appendChild(div);
         });
+        observeReveals(editorialGallery);
     }
 
     // FAQ
     initFAQ();
+}
+
+// Scroll reveal
+document.documentElement.classList.add('js');
+
+const revealObserver = 'IntersectionObserver' in window
+    ? new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
+    : null;
+
+function observeReveals(root = document) {
+    root.querySelectorAll('.reveal:not(.is-visible)').forEach(el => {
+        if (revealObserver) revealObserver.observe(el);
+        else el.classList.add('is-visible');
+    });
+}
+
+// Shared page chrome
+function initSiteChrome() {
+    const nav = document.querySelector('.main-nav');
+    if (nav) {
+        const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    }
+
+    document.querySelectorAll('.current-year').forEach(el => {
+        el.textContent = new Date().getFullYear();
+    });
+
+    initMobileMenu();
+    observeReveals();
 }
 
 // Initialize
@@ -498,6 +580,7 @@ let productModal;
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize data
     initializeData();
+    initSiteChrome();
     
     // Initialize based on current page
     const path = window.location.pathname;
@@ -560,7 +643,7 @@ function initChatbot() {
     function addWhatsAppLink() {
         const linkDiv = document.createElement('div');
         linkDiv.className = 'chat-message whatsapp-link';
-        linkDiv.innerHTML = `<a href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank">Continue on WhatsApp 💬</a>`;
+        linkDiv.innerHTML = `<a href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank" rel="noopener">Continue on WhatsApp</a>`;
         chatbotMessages.appendChild(linkDiv);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }

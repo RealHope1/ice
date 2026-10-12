@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Luxe by Icce - Your destination for elegance, style, and quality. Discover beautiful, carefully selected products in Ghana.">
-    <title>Luxe by Icce - Premium Online Shopping</title>
+    <meta name="description" content="Luxe by Icce - Your destination for elegance, style, and quality. Discover beautiful, carefully selected handbags and ladies' slippers in Ghana.">
+    <title>Luxe by Icce - Timeless Elegance for Her</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Announcement Bar -->
     <div class="announcement-bar" id="announcementBar">
-        <p>Welcome to Luxe by Icce - Your destination for elegance and style</p>
+        <p>Complimentary styling advice &nbsp;&middot;&nbsp; Delivery throughout Ghana &nbsp;&middot;&nbsp; Order on WhatsApp</p>
     </div>
 
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">LUXE BY ICCE</a>
+            <a href="index.html" class="nav-logo">
+                <span class="logo-main">Luxe</span>
+                <span class="logo-script">by Icce</span>
+            </a>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -25,42 +31,103 @@
             </button>
             <ul class="nav-menu">
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="catalogue.html">Shop Products</a></li>
-                <li><a href="index.html#about">About</a></li>
+                <li><a href="catalogue.html">The Collection</a></li>
+                <li><a href="index.html#about">Our Story</a></li>
+                <li><a href="index.html#faq">Client Care</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Carousel -->
-    <section class="hero-carousel" id="heroCarousel">
-        <div class="carousel-container">
-            <div class="carousel-track" id="carouselTrack">
-                <!-- Slides will be populated by JavaScript -->
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-copy reveal">
+                <p class="eyebrow">Maison of Handbags &amp; Slippers</p>
+                <h1>Timeless elegance,<br><em>curated for her.</em></h1>
+                <div class="ornament" aria-hidden="true"><span>&#10022;</span></div>
+                <p class="hero-text">Graceful silhouettes, soft leathers and heirloom details &mdash; hand-picked pieces for the woman who dresses with quiet confidence.</p>
+                <div class="hero-actions">
+                    <a href="catalogue.html" class="btn btn-primary">Shop the Collection</a>
+                    <a href="#new-arrivals" class="btn btn-secondary">New Arrivals</a>
+                </div>
             </div>
-            <button class="carousel-nav carousel-prev" aria-label="Previous slide">‹</button>
-            <button class="carousel-nav carousel-next" aria-label="Next slide">›</button>
-            <div class="carousel-indicators" id="carouselIndicators"></div>
+
+            <!-- Hero Carousel -->
+            <section class="hero-carousel reveal" id="heroCarousel" aria-label="Featured pieces">
+                <div class="arch-frame">
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="carouselTrack">
+                            <!-- Slides will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-nav carousel-prev" aria-label="Previous slide">&#8249;</button>
+                <button class="carousel-nav carousel-next" aria-label="Next slide">&#8250;</button>
+                <div class="carousel-indicators" id="carouselIndicators"></div>
+            </section>
         </div>
-    </section>
+    </header>
 
     <!-- Brand Introduction -->
     <section class="brand-intro" id="about">
         <div class="container">
-            <div class="brand-content">
-                <h1>Luxebyicce</h1>
+            <div class="brand-content reveal">
+                <p class="eyebrow">Our Philosophy</p>
+                <h2>Luxe <span class="script">by Icce</span></h2>
                 <p class="tagline">Your destination for elegance, style, and quality</p>
                 <p class="description">Discover beautiful, carefully selected products, enjoy a seamless shopping experience, and order conveniently through WhatsApp. Bringing style closer to you, wherever you are in Ghana.</p>
-                <a href="catalogue.html" class="btn btn-primary">Explore Collection</a>
+                <a href="catalogue.html" class="btn btn-outline">Explore Collection</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Edits -->
+    <section class="featured-collections">
+        <div class="container">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Shop by Edit</p>
+                <h2 class="section-title">The Signature Edits</h2>
+                <div class="ornament" aria-hidden="true"><span>&#10022;</span></div>
+            </div>
+            <div class="collections-grid">
+                <a href="catalogue.html" class="collection-card reveal">
+                    <img src="assets/images/6.jpeg" alt="Quilted burgundy top-handle handbag" loading="lazy">
+                    <div class="collection-overlay">
+                        <span class="collection-kicker">Edit I</span>
+                        <h3>The Handbag Edit</h3>
+                        <span class="collection-link">Discover</span>
+                    </div>
+                </a>
+                <a href="catalogue.html" class="collection-card reveal">
+                    <img src="assets/images/2.jpeg" alt="Leather slides with matching tote" loading="lazy">
+                    <div class="collection-overlay">
+                        <span class="collection-kicker">Edit II</span>
+                        <h3>Slides &amp; Slippers</h3>
+                        <span class="collection-link">Discover</span>
+                    </div>
+                </a>
+                <a href="catalogue.html" class="collection-card reveal">
+                    <img src="assets/images/14.jpeg" alt="Quilted flap bags in pastel tones" loading="lazy">
+                    <div class="collection-overlay">
+                        <span class="collection-kicker">Edit III</span>
+                        <h3>Gift-Ready Treasures</h3>
+                        <span class="collection-link">Discover</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- New Arrivals -->
-    <section class="new-arrivals">
+    <section class="new-arrivals" id="new-arrivals">
         <div class="container">
-            <h2 class="section-title">New Releases</h2>
-            <p class="section-subtitle">All items available - Click to enquire on WhatsApp</p>
+            <div class="section-heading reveal">
+                <p class="eyebrow">Just Arrived</p>
+                <h2 class="section-title">New Releases</h2>
+                <div class="ornament" aria-hidden="true"><span>&#10022;</span></div>
+                <p class="section-subtitle">Every piece is available &mdash; select one to view, or enquire on WhatsApp</p>
+            </div>
             <div class="products-grid" id="newArrivalsGrid">
                 <!-- Products will be populated by JavaScript -->
             </div>
@@ -70,7 +137,11 @@
     <!-- Editorial Gallery -->
     <section class="editorial-gallery">
         <div class="container">
-            <h2 class="section-title">Our Story</h2>
+            <div class="section-heading reveal">
+                <p class="eyebrow">The Journal</p>
+                <h2 class="section-title">Our Story</h2>
+                <div class="ornament" aria-hidden="true"><span>&#10022;</span></div>
+            </div>
             <div class="gallery-grid" id="editorialGallery">
                 <!-- Gallery items will be populated by JavaScript -->
             </div>
@@ -81,23 +152,31 @@
     <section class="quality-section">
         <div class="container">
             <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">✦</div>
+                <div class="feature-item reveal">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M12 21 8 9l4-6 4 6z"/></svg>
+                    </div>
                     <h3>Premium Quality</h3>
                     <p>Carefully selected products that meet our high standards</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">✆</div>
+                <div class="feature-item reveal">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
+                    </div>
                     <h3>WhatsApp Ordering</h3>
-                    <p>Order conveniently through WhatsApp with personalized service</p>
+                    <p>Order conveniently through WhatsApp with personalised service</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">⚡</div>
+                <div class="feature-item reveal">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                    </div>
                     <h3>Fast Response</h3>
                     <p>Quick responses to your enquiries and order requests</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">📍</div>
+                <div class="feature-item reveal">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                    </div>
                     <h3>Nationwide Delivery</h3>
                     <p>We deliver throughout Ghana with care</p>
                 </div>
@@ -108,11 +187,12 @@
     <!-- WhatsApp CTA -->
     <section class="whatsapp-cta">
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Shop?</h2>
+            <div class="cta-content reveal">
+                <p class="eyebrow">Personal Shopping</p>
+                <h2>Ready to find <em>your</em> piece?</h2>
                 <p>Contact us on WhatsApp for pricing, availability, and to place your order</p>
-                <a href="https://wa.me/233247559387?text=Hello%20Luxe%20by%20Icce%2C%20I%20would%20like%20to%20enquire%20about%20your%20products" target="_blank" class="btn btn-whatsapp">
-                    <span class="whatsapp-icon">📱</span>
+                <a href="https://wa.me/233247559387?text=Hello%20Luxe%20by%20Icce%2C%20I%20would%20like%20to%20enquire%20about%20your%20products" target="_blank" rel="noopener" class="btn btn-whatsapp">
+                    <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>
                     Contact on WhatsApp
                 </a>
                 <p class="phone-display">024 755 9387</p>
@@ -121,11 +201,15 @@
     </section>
 
     <!-- Delivery Information -->
-    <section class="delivery-info">
+    <section class="delivery-info" id="delivery">
         <div class="container">
-            <h2 class="section-title">Delivery & Ordering</h2>
+            <div class="section-heading reveal">
+                <p class="eyebrow">How It Works</p>
+                <h2 class="section-title">Delivery &amp; Ordering</h2>
+                <div class="ornament" aria-hidden="true"><span>&#10022;</span></div>
+            </div>
             <div class="info-grid">
-                <div class="info-item">
+                <div class="info-item reveal">
                     <h3>How to Order</h3>
                     <ol>
                         <li>Browse our product catalogue</li>
@@ -136,9 +220,10 @@
                         <li>Receive your tracking code</li>
                     </ol>
                 </div>
-                <div class="info-item">
+                <div class="info-item reveal">
                     <h3>Delivery Information</h3>
                     <p>We deliver throughout Ghana. Delivery fees and timing depend on your location. Contact us on WhatsApp for specific delivery information for your area.</p>
+                    <p class="info-note">Every order is wrapped with care &mdash; perfect for gifting.</p>
                 </div>
             </div>
         </div>
@@ -147,13 +232,17 @@
     <!-- FAQ Section -->
     <section class="faq-section" id="faq">
         <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Ask our chatbot or browse common questions below</p>
-            
+            <div class="section-heading reveal">
+                <p class="eyebrow">Client Care</p>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="ornament" aria-hidden="true"><span>&#10022;</span></div>
+                <p class="section-subtitle">Ask our assistant or browse common questions below</p>
+            </div>
+
             <!-- Chatbot -->
             <div class="chatbot-container">
                 <div class="chatbot-header">
-                    <span class="chatbot-title">💬 Ask Our Assistant</span>
+                    <span class="chatbot-title">Ask Our Concierge</span>
                     <button class="chatbot-toggle" id="chatbotToggle">Chat</button>
                 </div>
                 <div class="chatbot-body" id="chatbotBody">
@@ -169,7 +258,7 @@
                 </div>
             </div>
 
-            <div class="faq-list" id="faqList">
+            <div class="faq-list reveal" id="faqList">
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
                         <span>How do I place an order?</span>
@@ -222,6 +311,11 @@
     <!-- Footer -->
     <footer class="main-footer" id="contact">
         <div class="container">
+            <div class="footer-brand">
+                <span class="logo-main">Luxe</span>
+                <span class="logo-script">by Icce</span>
+                <div class="ornament" aria-hidden="true"><span>&#10022;</span></div>
+            </div>
             <div class="footer-grid">
                 <div class="footer-section">
                     <h3>Luxe by Icce</h3>
@@ -235,16 +329,16 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="catalogue.html">Shop Products</a></li>
-                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="catalogue.html">The Collection</a></li>
+                        <li><a href="index.html#about">Our Story</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Customer Service</h3>
+                    <h3>Client Care</h3>
                     <ul>
                         <li><a href="index.html#delivery">Delivery Information</a></li>
                         <li><a href="index.html#faq">FAQs</a></li>
-                        <li><a href="https://wa.me/233247559387" target="_blank">Contact Support</a></li>
+                        <li><a href="https://wa.me/233247559387" target="_blank" rel="noopener">Contact Support</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -256,7 +350,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Luxe by Icce. All rights reserved.</p>
+                <p>&copy; <span class="current-year">2024</span> Luxe by Icce. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -264,8 +358,8 @@
     <!-- Product Modal -->
     <div class="product-modal" id="productModal" aria-hidden="true">
         <div class="modal-overlay" id="modalOverlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose" aria-label="Close modal">×</button>
+        <div class="modal-content" role="dialog" aria-modal="true">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
             <div class="modal-body" id="modalBody">
                 <!-- Product details will be populated by JavaScript -->
             </div>
