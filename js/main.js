@@ -3,6 +3,7 @@
 // WhatsApp Configuration
 const WHATSAPP_NUMBER = '233247559387';
 const WHATSAPP_DISPLAY = '024 755 9387';
+const WHATSAPP_CHANNEL_URL = 'https://whatsapp.com/channel/0029VbDX0EhCXC3O5AWB2B1I';
 const WA_ICON = '<svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>';
 
 function pieceNumber(id) {
@@ -101,7 +102,7 @@ function getSettings() {
 
 // WhatsApp message generator - Enhanced
 function generateWhatsAppMessage(product, variation = null) {
-    let message = `Hello Luxe by Icce! 👋\n\nI'm interested in your products. Please provide:\n• Current pricing\n• Availability\n• Product details\n• Delivery options\n\nItem reference: #${product.id}\n\nLooking forward to hearing from you!`;
+    let message = `Hello Luxe by Icce,\n\nI would like to order Piece No. ${pieceNumber(product.id)}. Kindly confirm the price, availability and delivery options.\n\nThank you.`;
     if (variation) {
         message += `\n\nSelected: ${variation}`;
     }
@@ -223,10 +224,10 @@ function renderProductCard(product) {
         <div class="product-info">
             <p class="product-category">Luxe Collection</p>
             <h3 class="product-name">Piece No. ${pieceNumber(product.id)}</h3>
-            <p class="product-price">Price on request</p>
+            <p class="product-price">Price &amp; stock on our WhatsApp Channel</p>
             <div class="product-actions">
-                <a href="${getWhatsAppURL(product)}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
-                    ${WA_ICON} Enquire on WhatsApp
+                <a href="${WHATSAPP_CHANNEL_URL}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" aria-label="Check price and stock for Piece No. ${pieceNumber(product.id)} on our WhatsApp Channel">
+                    ${WA_ICON} Check Price &amp; Stock
                 </a>
             </div>
         </div>
@@ -285,18 +286,19 @@ class ProductModal {
                     <p class="product-category">Luxe Collection</p>
                     <h2 class="product-name">Piece No. ${pieceNumber(product.id)}</h2>
                     <div class="ornament ornament-left" aria-hidden="true"><span>&#10022;</span></div>
-                    <p class="product-description">A beautiful piece from our collection, carefully selected for timeless style. Contact us for full details and pricing.</p>
-                    <p class="product-price">Price on request &mdash; enquire on WhatsApp for pricing and availability</p>
+                    <p class="product-description">A beautiful piece from our collection, carefully selected for timeless style.</p>
+                    <p class="product-price">Prices and availability are updated regularly on our official WhatsApp Channel</p>
                     <ul class="modal-perks">
                         <li>Delivery throughout Ghana</li>
                         <li>Mobile money, bank transfer &amp; cash on delivery (Accra)</li>
                         <li>Personal assistance on WhatsApp</li>
                     </ul>
                     <div class="modal-actions">
-                        <a href="${getWhatsAppURL(product)}" target="_blank" rel="noopener" class="btn btn-whatsapp">
+                        <a href="${WHATSAPP_CHANNEL_URL}" target="_blank" rel="noopener" class="btn btn-whatsapp">
                             ${WA_ICON}
-                            Enquire on WhatsApp
+                            Check Price &amp; Availability
                         </a>
+                        <a href="${getWhatsAppURL(product)}" target="_blank" rel="noopener" class="modal-order-link">Ready to order? Message our team about Piece No. ${pieceNumber(product.id)}</a>
                     </div>
                 </div>
             </div>
@@ -655,7 +657,7 @@ function getBotResponse(message) {
     // Order related
     if (lowerMessage.includes('order') || lowerMessage.includes('buy') || lowerMessage.includes('purchase')) {
         return {
-            text: 'To place an order, browse our product catalogue and click on any item. Use the WhatsApp button to enquire about pricing and availability. Our team will guide you through the process.',
+            text: 'Browse our catalogue and select any piece. Tap "Check Price & Stock" to view current prices and availability on our official WhatsApp Channel, then message our team on WhatsApp quoting the piece number to confirm your order.',
             whatsapp: true
         };
     }
@@ -663,7 +665,7 @@ function getBotResponse(message) {
     // Price related
     if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('how much')) {
         return {
-            text: 'We believe in personalized service. Prices vary based on availability and special requests. Contact us on WhatsApp for accurate and up-to-date pricing.',
+            text: 'Current prices and available stock are published on our official WhatsApp Channel. Tap "Check Price & Stock" on any piece to view them.',
             whatsapp: true
         };
     }
